@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="The Daily canteen portal for students and owners." />
+    <meta name="theme-color" content="#f6f6f1" />
+    <title>The Daily — Campus Canteen Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div id="auth-screen" class="auth-screen">
+      <div class="auth-card">
+        <div class="auth-brand">
+          <span class="brand-mark">d.</span>
+          <div>
+            <span class="brand-name">the daily<span class="brand-dot">.</span></span>
+            <p>Campus ordering portal</p>
+          </div>
+        </div>
+
+        <div class="portal-choice" role="tablist" aria-label="Choose a portal">
+          <button type="button" class="portal-option active" data-portal="student">Student portal</button>
+          <button type="button" class="portal-option" data-portal="owner">Owner portal</button>
+        </div>
+
+        <form id="auth-form" class="auth-form">
+          <label>
+            <span id="login-label">Student ID</span>
+            <input id="login-id" type="text" placeholder="Enter your student ID" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input id="login-password" type="password" placeholder="Enter your password" required />
+          </label>
+          <button class="primary-button" id="login-button" type="submit">Open portal</button>
+          <p class="demo-text">Demo access: Student portal uses <strong>student123</strong> and owner portal uses <strong>owner123</strong>.</p>
+        </form>
+      </div>
+    </div>
+
+    <div id="student-app" class="app-shell hidden">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <a class="brand" href="#" aria-label="The Daily home">
+            <span class="brand-mark" aria-hidden="true">d.</span>
+            <span class="brand-name">the daily<span class="brand-dot">.</span></span>
+          </a>
+          <div class="campus-label"><span class="live-dot"></span> CAMPUS CANTEEN <span class="label-divider">/</span> OPEN NOW</div>
+        </div>
+        <div class="topbar-actions">
+          <span class="welcome-pill" id="student-welcome">Welcome, Student</span>
+          <button class="text-button" id="student-signout" type="button">Sign out</button>
+          <button class="cart-trigger" id="cart-trigger" type="button" aria-label="Open cart">
+            <span class="cart-trigger-label">Your tray</span>
+            <span class="cart-count" id="cart-count">0</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> GOOD FOOD. ZERO QUEUE.</p>
+            <h1 id="hero-title">Your break,<br />well <span>spent.</span></h1>
+            <p class="hero-description">Campus favorites, made fresh and ready when you are. Order ahead, skip the line, and pay in just a few taps.</p>
+            <a class="hero-link" href="#menu">Explore the menu <span aria-hidden="true">↘</span></a>
+          </div>
+          <div class="hero-art">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=85" alt="Freshly baked pizza layered with vegetables and herbs" />
+            <div class="hero-sticker"><span>MADE<br />FRESH</span><span class="sticker-star" aria-hidden="true">✳</span></div>
+            <div class="hero-photo-caption"><span>01 / TODAY'S PICK</span><span>THE LOADED SLICE</span></div>
+          </div>
+          <div class="hero-index" aria-hidden="true">MENU — 2025 / 26</div>
+        </section>
+
+        <section class="story-section" aria-labelledby="story-title">
+          <div class="story-heading story-reveal">
+            <p class="eyebrow"><span class="eyebrow-line"></span> YOUR BREAK, IN THREE ACTS</p>
+            <h2 id="story-title">A little time-out.<br />A lot to <span>savor.</span></h2>
+          </div>
+          <div class="story-steps">
+            <article class="story-step story-reveal">
+              <div class="story-step-top"><span>01</span><span class="story-step-line"></span><span>THE CRAVING</span></div>
+              <div class="story-step-image">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=720&q=80" alt="" loading="lazy" />
+                <span class="story-step-icon" aria-hidden="true">⌕</span>
+              </div>
+              <h3>Find your thing.</h3>
+              <p>Pick a fresh favorite from the campus menu, whenever the craving hits.</p>
+            </article>
+            <article class="story-step story-reveal">
+              <div class="story-step-top"><span>02</span><span class="story-step-line"></span><span>THE GOOD PART</span></div>
+              <div class="story-step-image">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=720&q=80" alt="" loading="lazy" />
+                <span class="story-step-icon" aria-hidden="true">✳</span>
+              </div>
+              <h3>We make it fresh.</h3>
+              <p>Your canteen gets cooking while you get back to whatever you were doing.</p>
+            </article>
+            <article class="story-step story-reveal">
+              <div class="story-step-top"><span>03</span><span class="story-step-line"></span><span>BACK TO YOU</span></div>
+              <div class="story-step-image">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=720&q=80" alt="" loading="lazy" />
+                <span class="story-step-icon" aria-hidden="true">↗</span>
+              </div>
+              <h3>Pick up. Dig in.</h3>
+              <p>Skip the queue, collect your order, and make the break yours.</p>
+            </article>
+          </div>
+          <a class="story-cta story-reveal" href="#menu">Make your break <span aria-hidden="true">↓</span></a>
+        </section>
+
+        <section class="menu-section" id="menu" aria-labelledby="menu-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> THE GOOD STUFF</p>
+              <h2 id="menu-title">Made for this moment<span class="heading-period">.</span></h2>
+            </div>
+            <label class="search-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
+              <input id="search-input" type="search" placeholder="Find your favorite..." aria-label="Search menu" />
+              <kbd>/</kbd>
+            </label>
+          </div>
+          <div class="menu-toolbar">
+            <div class="category-list" id="category-list" role="group" aria-label="Filter menu by category"></div>
+            <span class="menu-count" id="menu-count"></span>
+          </div>
+          <div class="food-grid" id="food-grid" aria-live="polite"></div>
+          <div class="empty-results" id="empty-results" hidden>
+            <span aria-hidden="true">⌕</span>
+            <h3>No bites found.</h3>
+            <p>Try another search or pick a different category.</p>
+          </div>
+        </section>
+
+        <section class="bottom-banner">
+          <div><span class="banner-spark" aria-hidden="true">✳</span><p>GOOD FOOD, BETTER BREAKS.</p></div>
+          <span>MADE WITH CAMPUS IN MIND <span aria-hidden="true">↗</span></span>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true">d.</span><span class="brand-name">the daily<span class="brand-dot">.</span></span></a>
+        <span>FRESH FROM OUR KITCHEN TO YOUR CAMPUS.</span>
+        <span>© THE DAILY CANTEEN</span>
+      </footer>
+    </div>
+
+    <div id="owner-app" class="dashboard-shell hidden">
+      <header class="dashboard-header">
+        <div class="brand-wrap">
+          <div class="brand" aria-label="The Daily owner dashboard">
+            <span class="brand-mark" aria-hidden="true">d.</span>
+            <span class="brand-name">the daily<span class="brand-dot">.</span></span>
+          </div>
+          <div class="campus-label"><span class="live-dot"></span> OWNER DASHBOARD</div>
+        </div>
+        <div class="topbar-actions">
+          <span class="welcome-pill" id="owner-welcome">Welcome, Owner</span>
+          <button class="text-button" id="owner-signout" type="button">Sign out</button>
+        </div>
+      </header>
+
+      <main class="dashboard-main">
+        <section class="overview-grid">
+          <article class="kpi-card">
+            <span>Total orders</span>
+            <strong id="kpi-orders">0</strong>
+          </article>
+          <article class="kpi-card accent">
+            <span>Revenue</span>
+            <strong id="kpi-revenue">₹0</strong>
+          </article>
+          <article class="kpi-card">
+            <span>Pending</span>
+            <strong id="kpi-pending">0</strong>
+          </article>
+          <article class="kpi-card">
+            <span>Menu items</span>
+            <strong id="kpi-menu">0</strong>
+          </article>
+        </section>
+
+        <section class="owner-panels">
+          <div class="panel orders-panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow"><span class="eyebrow-line"></span> RECEIVED</p>
+                <h2>Orders & payments</h2>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Order</th>
+                    <th>Student</th>
+                    <th>Items</th>
+                    <th>Total</th>
+                    <th>Payment</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel menu-panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow"><span class="eyebrow-line"></span> MENU</p>
+                <h2>Food inventory</h2>
+              </div>
+            </div>
+
+            <form id="menu-form" class="menu-form">
+              <input name="name" type="text" placeholder="Item name" required />
+              <select name="category" required>
+                <option value="Mains">Mains</option>
+                <option value="Fresh">Fresh</option>
+                <option value="Sides">Sides</option>
+                <option value="Sips">Sips</option>
+              </select>
+              <input name="price" type="number" min="20" step="1" placeholder="Price" required />
+              <input name="image" type="url" placeholder="Image URL" />
+              <button class="primary-button" type="submit">Add item</button>
+            </form>
+
+            <div id="menu-admin-list" class="menu-admin-list"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="overlay" id="overlay" hidden></div>
+    <aside class="cart-panel" id="cart-panel" aria-labelledby="cart-title" aria-hidden="true">
+      <div class="panel-header">
+        <div><p class="eyebrow"><span class="eyebrow-line"></span> YOUR ORDER</p><h2 id="cart-title">Your tray<span class="heading-period">.</span></h2></div>
+        <button class="icon-button" id="close-cart" type="button" aria-label="Close cart">×</button>
+      </div>
+      <div class="cart-content" id="cart-content"></div>
+      <div class="cart-footer" id="cart-footer">
+        <div class="subtotal-row"><span>Subtotal</span><strong id="subtotal-value">₹0</strong></div>
+        <div class="payment-picker">
+          <label for="payment-method">Payment method</label>
+          <select id="payment-method">
+            <option value="Cash">Cash</option>
+            <option value="UPI">UPI</option>
+            <option value="Card">Card</option>
+          </select>
+        </div>
+        <div class="tax-note">Taxes included. No surprises.</div>
+        <button class="checkout-button" id="checkout-button" type="button" disabled>Place your order <span aria-hidden="true">↗</span></button>
+        <p class="checkout-note">Pay at the canteen counter or via your chosen method.</p>
+      </div>
+    </aside>
+
+    <dialog class="confirmation-dialog" id="confirmation-dialog" aria-labelledby="confirmation-title">
+      <button class="icon-button dialog-close" id="close-confirmation" type="button" aria-label="Close confirmation">×</button>
+      <span class="confirmation-icon" aria-hidden="true">✓</span>
+      <p class="eyebrow"><span class="eyebrow-line"></span> ORDER RECEIVED</p>
+      <h2 id="confirmation-title">That's a<br />good <span>call.</span></h2>
+      <p class="confirmation-copy">Your order is in. Show your order number at the canteen counter and we’ll take it from here.</p>
+      <div class="order-number"><span>YOUR ORDER NUMBER</span><strong id="order-number"></strong></div>
+      <button class="checkout-button done-button" id="done-button" type="button">Back to the good stuff <span aria-hidden="true">↗</span></button>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
